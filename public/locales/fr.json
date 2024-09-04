@@ -1,10 +1,80 @@
 {
-  "landing": {
-    "welcome": "Bienvenue sur memori.",
-    "description": "Votre plateforme personnelle d'apprentissage et de productivité.",
-    "loginButton": "Se connecter",
-    "signupButton": "S'inscrire"
+  "metadata": {
+    "title": "memori. - Votre Plateforme d'Apprentissage Alimentée par l'IA",
+    "description": "Améliorez votre apprentissage et votre productivité avec memori."
   },
+  "nav": {
+    "features": "Fonctionnalités",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "login": "Connexion",
+    "signup": "S'inscrire"
+  },
+  "hero": {
+    "title": "Libérez le Potentiel de Votre Esprit",
+    "subtitle": "Plateforme d'Apprentissage et de Productivité Alimentée par l'IA",
+    "cta": "Commencez Gratuitement"
+  },
+  "features": {
+    "title": "Fonctionnalités Clés",
+    "items": [
+      {
+        "title": "Apprentissage Adaptatif",
+        "description": "Parcours d'apprentissage personnalisés adaptés à vos objectifs et progrès."
+      },
+      {
+        "title": "Suite de Productivité",
+        "description": "Outils intégrés pour gérer les tâches, fixer des objectifs et suivre les habitudes."
+      },
+      {
+        "title": "Insights IA",
+        "description": "Analyses avancées et recommandations pour optimiser votre apprentissage."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Choisissez Votre Plan",
+    "cta": "Sélectionner le Plan",
+    "plans": [
+      {
+        "name": "Basique",
+        "price": "Gratuit",
+        "features": [
+          "Fonctionnalités d'apprentissage de base",
+          "Outils de productivité limités",
+          "Analyses basiques"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "4,99€/mois",
+        "features": [
+          "Outils d'apprentissage avancés",
+          "Suite complète de productivité",
+          "Insights IA détaillés"
+        ]
+      },
+      {
+        "name": "Équipe",
+        "price": "14,99€/mois",
+        "features": [
+          "Tout ce qui est inclus dans Pro",
+          "Apprentissage collaboratif",
+          "Analyses et rapports d'équipe"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à Révolutionner Votre Apprentissage ?",
+    "button": "Commencez Votre Essai Gratuit"
+  },
+  "footer": {
+    "terms": "Conditions",
+    "privacy": "Confidentialité"
+  },
+
+
   "dashboard": {
     "welcome": "Bienvenue sur votre tableau de bord",
     "description": "Ici, vous pouvez gérer vos tâches d'apprentissage et de productivité."

@@ -1,10 +1,80 @@
 {
-  "landing": {
-    "welcome": "Welcome to memori.",
-    "description": "Your personal learning and productivity platform.",
-    "loginButton": "Log In",
-    "signupButton": "Sign Up"
+  "metadata": {
+    "title": "memori. - Your AI-Powered Learning Platform",
+    "description": "Enhance your learning and productivity with memori."
   },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "about": "About",
+    "login": "Log In",
+    "signup": "Sign Up"
+  },
+  "hero": {
+    "title": "Unlock Your Mind's Potential",
+    "subtitle": "AI-Powered Learning & Productivity Platform",
+    "cta": "Get Started for Free"
+  },
+  "features": {
+    "title": "Key Features",
+    "items": [
+      {
+        "title": "Adaptive Learning",
+        "description": "Personalized learning paths tailored to your goals and progress."
+      },
+      {
+        "title": "Productivity Suite",
+        "description": "Integrated tools to manage tasks, set goals, and track habits."
+      },
+      {
+        "title": "AI Insights",
+        "description": "Advanced analytics and recommendations to optimize your learning."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Choose Your Plan",
+    "cta": "Select Plan",
+    "plans": [
+      {
+        "name": "Basic",
+        "price": "Free",
+        "features": [
+          "Core learning features",
+          "Limited productivity tools",
+          "Basic analytics"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "$4.99/month",
+        "features": [
+          "Advanced learning tools",
+          "Full productivity suite",
+          "Detailed AI insights"
+        ]
+      },
+      {
+        "name": "Team",
+        "price": "$14.99/month",
+        "features": [
+          "Everything in Pro",
+          "Collaborative learning",
+          "Team analytics and reporting"
+        ]
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Revolutionize Your Learning?",
+    "button": "Start Your Free Trial"
+  },
+  "footer": {
+    "terms": "Terms",
+    "privacy": "Privacy"
+  },
+
+
   "dashboard": {
     "welcome": "Welcome to your Dashboard",
     "description": "Here you can manage your learning and productivity tasks."
