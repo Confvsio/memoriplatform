@@ -1,3 +1,12 @@
 {
-    "welcome": "Bienvenue sur memori."
+  "landing": {
+    "welcome": "Bienvenue sur memori.",
+    "description": "Votre plateforme personnelle d'apprentissage et de productivité.",
+    "loginButton": "Se connecter",
+    "signupButton": "S'inscrire"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue sur votre tableau de bord",
+    "description": "Ici, vous pouvez gérer vos tâches d'apprentissage et de productivité."
   }
+}
