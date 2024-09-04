@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Check if the pathname already includes a language
+  // If the path already has a language prefix, allow the request
   if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
     return NextResponse.next()
   }
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
   const supportedLanguages = ['en', 'fr']
 
   // Determine which language to use
-  let language = supportedLanguages.includes(preferredLanguage) ? preferredLanguage : 'en'
+  const language = supportedLanguages.includes(preferredLanguage) ? preferredLanguage : 'en'
 
   // Create the new URL with the language prefix
   const newUrl = new URL(`/${language}${pathname}`, request.url)
@@ -28,9 +28,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
+    // Apply middleware to all paths except those starting with _next
     '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
   ],
 }
