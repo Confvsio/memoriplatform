@@ -24,7 +24,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           <Link href="#features" className="text-gray-300 hover:text-white transition">{dict.nav.features}</Link>
           <Link href="#pricing" className="text-gray-300 hover:text-white transition">{dict.nav.pricing}</Link>
         </nav>
-        <Link href="/signup" className="custom-button text-white px-6 py-2 rounded-full">
+        <Link href="/auth" className="custom-button text-white px-6 py-2 rounded-full">
           {dict.nav.signup}
         </Link>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
@@ -47,7 +47,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           {dict.hero.title}
         </h2>
         <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">{dict.hero.subtitle}</p>
-        <Link href="/signup" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-flex items-center">
+        <Link href="/auth" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-flex items-center">
           {dict.hero.cta}
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -97,7 +97,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
                     </li>
                   ))}
                 </ul>
-                <Link href="/signup" className="custom-button text-white px-6 py-2 rounded-full inline-block">
+                <Link href="/auth" className="custom-button text-white px-6 py-2 rounded-full inline-block">
                   {dict.pricing.cta}
                 </Link>
               </div>
@@ -117,7 +117,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             {dict.cta.title}
           </h3>
-          <Link href="/signup" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-block">
+          <Link href="/auth" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-block">
             {dict.cta.button}
           </Link>
         </div>

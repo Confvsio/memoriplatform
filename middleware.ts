@@ -14,7 +14,7 @@ export async function middleware(request: NextRequest) {
     if (pathname.includes('/dashboard') && !session) {
       // Redirect to login page if not authenticated
       const lang = pathname.split('/')[1]
-      return NextResponse.redirect(new URL(`/${lang}/login`, request.url))
+      return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
     }
     
     return res

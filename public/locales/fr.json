@@ -170,28 +170,20 @@
   },
   "auth": {
     "login": {
-      "title": "Connexion",
-      "email": "Email",
+      "title": "Connectez-vous à votre compte",
+      "email": "Adresse e-mail",
       "password": "Mot de passe",
       "submit": "Se connecter",
       "forgotPassword": "Mot de passe oublié ?",
-      "noAccount": "Vous n'avez pas de compte ?",
-      "signUp": "S'inscrire"
+      "noAccount": "Pas de compte ? Inscrivez-vous",
+      "orContinueWith": "Ou continuez avec"
     },
     "signup": {
-      "title": "Inscription",
-      "email": "Email",
+      "title": "Créez votre compte",
+      "email": "Adresse e-mail",
       "password": "Mot de passe",
-      "confirmPassword": "Confirmer le mot de passe",
       "submit": "S'inscrire",
-      "haveAccount": "Vous avez déjà un compte ?",
-      "logIn": "Se connecter"
-    },
-    "forgotPassword": {
-      "title": "Mot de passe oublié",
-      "email": "Email",
-      "submit": "Réinitialiser le mot de passe",
-      "backToLogin": "Retour à la connexion"
+      "haveAccount": "Vous avez déjà un compte ? Connectez-vous"
     }
   }
 }
