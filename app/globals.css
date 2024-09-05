@@ -3,21 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --d: 2500ms;
-  --angle: 90deg;
-  --c1: rgba(168, 239, 255, 1);
-  --c2: rgba(168, 239, 255, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41, 55;
+  --primary-color: #4F46E5;
+  --secondary-color: #818CF8;
 }
 
 body {
@@ -30,78 +20,51 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@property --angle {
-  syntax: '<angle>';
-  initial-value: 90deg;
-  inherits: true;
+.animated-blob {
+  position: absolute;
+  filter: blur(40px);
+  opacity: 0.3;
+  animation: blob-animation 20s infinite alternate;
+}
+
+@keyframes blob-animation {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(50px, 50px) scale(1.1);
+  }
 }
 
 .feature-box {
-  border: 0.35rem solid;
-  border-image: conic-gradient(from var(--angle), var(--c2), var(--c1) 0.1turn, var(--c1) 0.15turn, var(--c2) 0.25turn) 30;
-  animation: borderRotate var(--d) linear infinite forwards;
+  transition: all 0.3s ease;
 }
 
-@keyframes borderRotate {
-  100% {
-    --angle: 420deg;
-  }
+.feature-box:hover {
+  transform: translateY(-5px);
 }
 
-.animated-blob {
+.feature-box:hover .border-animation::before {
+  width: 100%;
+}
+
+.border-animation::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50vmin;
-  height: 50vmin;
-  background: radial-gradient(circle at 0% 0%, hotpink, slateblue);
-  border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
-  box-shadow: 0 -2vmin 4vmin LightPink inset, 0 1vmin 4vmin MediumPurple inset,
-    0 -2vmin 7vmin purple inset;
-  filter: drop-shadow(0 0 3vmin Thistle) drop-shadow(0 5vmin 4vmin Orchid)
-    drop-shadow(2vmin -2vmin 15vmin MediumSlateBlue)
-    drop-shadow(0 0 7vmin MediumOrchid);
-  animation: blobAnimation 30s infinite;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  transition: width 0.3s ease;
 }
 
-@keyframes blobAnimation {
-  0%, 100% {
-    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
-    box-shadow: 0 -2vmin 4vmin LightPink inset, 0 -4vmin 4vmin MediumPurple inset,
-      0 -2vmin 7vmin purple inset;
-  }
-  10% {
-    border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
-  }
-  20% {
-    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
-  }
-  30% {
-    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
-    box-shadow: 0 -4vmin 8vmin hotpink inset, -1vmin -2vmin 6vmin LightPink inset,
-      -1vmin -2vmin 4vmin MediumPurple inset, 1vmin 4vmin 8vmin purple inset;
-  }
-  40% {
-    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
-  }
-  50% {
-    border-radius: 100%;
-    box-shadow: 0 4vmin 16vmin hotpink inset, 0 2vmin 5vmin LightPink inset, 0 4vmin 4vmin MediumPurple inset,
-      0 6vmin 8vmin purple inset;
-  }
-  60% {
-    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
-  }
-  70% {
-    border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
-    box-shadow: 1vmin 1vmin 8vmin LightPink inset,
-      2vmin -1vmin 4vmin MediumPurple inset, -1vmin -1vmin 16vmin purple inset;
-  }
-  80% {
-    border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
-  }
-  90% {
-    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
-  }
+.custom-button {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  transition: all 0.3s ease;
+}
+
+.custom-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }

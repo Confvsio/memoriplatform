@@ -1,24 +1,45 @@
 import { getDictionary } from '../../lib/dictionary'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default async function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const dict = await getDictionary(lang)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
-      <div className="animated-blob"></div>
-      {/* Header */}
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className="animated-blob w-64 h-64 rounded-full absolute"
+             style={{
+               background: `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.1)`,
+               left: `${Math.random()*100}%`,
+               top: `${Math.random()*100}%`,
+             }}
+        ></div>
+      ))}
+
       <header className="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
         <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">memori.</h1>
         <nav className="hidden md:flex space-x-8">
           <Link href="#features" className="text-gray-300 hover:text-white transition">{dict.nav.features}</Link>
           <Link href="#pricing" className="text-gray-300 hover:text-white transition">{dict.nav.pricing}</Link>
-          <Link href="/login" className="text-gray-300 hover:text-white transition">{dict.nav.login}</Link>
         </nav>
-        <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out">
+        <Link href="/signup" className="custom-button text-white px-6 py-2 rounded-full">
           {dict.nav.signup}
         </Link>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </header>
+
+      {isMenuOpen && (
+        <div className="md:hidden absolute top-20 right-0 left-0 bg-gray-900 z-20">
+          <Link href="#features" className="block py-2 px-4 text-sm hover:bg-gray-800">{dict.nav.features}</Link>
+          <Link href="#pricing" className="block py-2 px-4 text-sm hover:bg-gray-800">{dict.nav.pricing}</Link>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 text-center relative z-10">
@@ -26,7 +47,7 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           {dict.hero.title}
         </h2>
         <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">{dict.hero.subtitle}</p>
-        <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ease-in-out inline-flex items-center">
+        <Link href="/signup" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-flex items-center">
           {dict.hero.cta}
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -42,7 +63,8 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           </h3>
           <div className="grid md:grid-cols-3 gap-10">
             {dict.features.items.map((feature, index) => (
-              <div key={index} className="feature-box bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg transition duration-300 ease-in-out">
+              <div key={index} className="feature-box bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg relative overflow-hidden">
+                <div className="border-animation absolute inset-0"></div>
                 <h4 className="text-xl font-semibold mb-3 text-blue-400">{feature.title}</h4>
                 <p className="text-gray-300">{feature.description}</p>
               </div>
@@ -59,7 +81,8 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           </h3>
           <div className="grid md:grid-cols-3 gap-10">
             {dict.pricing.plans.map((plan, index) => (
-              <div key={index} className="feature-box bg-gray-800 bg-opacity-50 p-8 rounded-lg text-center shadow-lg backdrop-filter backdrop-blur-lg transition duration-300 ease-in-out">
+              <div key={index} className="feature-box bg-gray-800 bg-opacity-50 p-8 rounded-lg text-center shadow-lg backdrop-filter backdrop-blur-lg relative overflow-hidden">
+                <div className="border-animation absolute inset-0"></div>
                 <h4 className="text-2xl font-semibold mb-4 text-blue-400">{plan.name}</h4>
                 <p className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                   {plan.price}
@@ -74,16 +97,16 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
                     </li>
                   ))}
                 </ul>
-                <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out inline-block">
+                <Link href="/signup" className="custom-button text-white px-6 py-2 rounded-full inline-block">
                   {dict.pricing.cta}
                 </Link>
-                <div className="mt-4">
-                  <Link href={`/${lang}/features`} className="text-blue-400 hover:text-blue-300 transition">
-                    {dict.pricing.viewFeatures}
-                  </Link>
-                </div>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link href={`/${lang}/features`} className="custom-button text-white px-8 py-3 rounded-full inline-block">
+              {dict.pricing.viewFeatures}
+            </Link>
           </div>
         </div>
       </section>
@@ -94,7 +117,7 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             {dict.cta.title}
           </h3>
-          <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold inline-block transition duration-300 ease-in-out">
+          <Link href="/signup" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-block">
             {dict.cta.button}
           </Link>
         </div>
