@@ -16,18 +16,8 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
   if (!dict) return null // or a loading spinner
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden animated-gradient">
-      {[...Array(5)].map((_, i) => (
-        <div key={i} className="animated-blob w-64 h-64 rounded-full absolute"
-             style={{
-               background: `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.1)`,
-               left: `${Math.random()*100}%`,
-               top: `${Math.random()*100}%`,
-               animation: `blob-animation ${20 + i * 2}s infinite alternate`,
-             }}
-        ></div>
-      ))}
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
+      <div className="animated-blob"></div>
       <header className="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
         <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">memori.</h1>
         <nav className="hidden md:flex space-x-8">

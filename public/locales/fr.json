@@ -39,19 +39,19 @@
         "name": "Basique",
         "price": "Gratuit",
         "features": [
-          "100 flashcards",
-          "10 cartes mentales",
+          "50 flashcards",
+          "Fonctionnalités limitées",
           "Analyses de base",
-          "Génération de quiz limitée"
+          "Suivi de 6 habitudes"
         ]
       },
       {
         "name": "Premium",
         "price": "4,99€/mois",
         "features": [
-          "Flashcards et cartes mentales illimitées",
+          "Flashcards illimitées",
+          "Toutes les fonctionnalités incluses",
           "Insights IA avancés",
-          "Fonctionnalités collaboratives",
           "Support prioritaire"
         ]
       },
@@ -60,8 +60,8 @@
         "price": "14,99€/mois",
         "features": [
           "Jusqu'à 5 comptes utilisateurs",
-          "Tableau de bord familial partagé",
           "Toutes les fonctionnalités Premium",
+          "Tableau de bord familial partagé",
           "Suivi des progrès familiaux"
         ]
       }
@@ -88,13 +88,13 @@
     "features": [
       {
         "name": "Flashcards",
-        "free": "100",
+        "free": "50",
         "premium": "Illimité",
         "family": "Illimité"
       },
       {
         "name": "Cartes Mentales",
-        "free": "10",
+        "free": "3",
         "premium": "Illimité",
         "family": "Illimité"
       },
@@ -130,7 +130,7 @@
       },
       {
         "name": "Suivi des Habitudes",
-        "free": "3 habitudes",
+        "free": "6 habitudes",
         "premium": "Illimité",
         "family": "Illimité"
       },
@@ -142,39 +142,21 @@
       },
       {
         "name": "Recommandations IA",
-        "free": "Basique",
-        "premium": "Avancé",
-        "family": "Avancé"
-      },
-      {
-        "name": "Éléments de Gamification",
-        "free": "Basique",
-        "premium": "Avancé",
-        "family": "Avancé"
+        "free": false,
+        "premium": true,
+        "family": true
       },
       {
         "name": "Tableau de Bord Personnalisable",
-        "free": "Limité",
-        "premium": "Complet",
-        "family": "Complet"
-      },
-      {
-        "name": "Langues Multiples",
-        "free": "2 langues",
-        "premium": "Toutes les langues",
-        "family": "Toutes les langues"
+        "free": false,
+        "premium": true,
+        "family": true
       },
       {
         "name": "Minuteur Pomodoro",
         "free": true,
         "premium": true,
         "family": true
-      },
-      {
-        "name": "Partage Social",
-        "free": "Limité",
-        "premium": "Complet",
-        "family": "Complet"
       },
       {
         "name": "Analyses Avancées",

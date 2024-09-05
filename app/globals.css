@@ -5,7 +5,7 @@
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 17, 24, 39;
-  --background-end-rgb: 76, 29, 149;
+  --background-end-rgb: 31, 41, 55;
 }
 
 body {
@@ -18,41 +18,50 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.animated-gradient {
-  background: linear-gradient(270deg, #1a202c, #2d3748, #4a5568);
-  background-size: 600% 600%;
-  animation: gradientAnimation 30s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .animated-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vmin;
+  height: 50vmin;
+  background: radial-gradient(circle at 0% 0%, hotpink, slateblue);
+  border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
   filter: blur(40px);
   opacity: 0.3;
+  animation: blobAnimation 30s infinite;
 }
 
-@keyframes blob-animation {
-  0% {
-    transform: translate(0, 0) scale(1);
+@keyframes blobAnimation {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
   }
-  33% {
-    transform: translate(30px, -50px) scale(1.1);
+  10% {
+    border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
   }
-  66% {
-    transform: translate(-20px, 20px) scale(0.9);
+  20% {
+    border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
   }
-  100% {
-    transform: translate(0, 0) scale(1);
+  30% {
+    border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+  }
+  40% {
+    border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+  }
+  50% {
+    border-radius: 100%;
+  }
+  60% {
+    border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+  }
+  70% {
+    border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+  }
+  80% {
+    border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+  }
+  90% {
+    border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
   }
 }
 

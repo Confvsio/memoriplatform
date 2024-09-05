@@ -16,18 +16,8 @@ export default function FeaturesPage({ params: { lang } }: { params: { lang: str
   if (!dict) return null // or a loading spinner
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden animated-gradient">
-      {[...Array(5)].map((_, i) => (
-        <div key={i} className="animated-blob w-64 h-64 rounded-full absolute"
-             style={{
-               background: `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.1)`,
-               left: `${Math.random()*100}%`,
-               top: `${Math.random()*100}%`,
-               animation: `blob-animation ${20 + i * 2}s infinite alternate`,
-             }}
-        ></div>
-      ))}
-
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
+      <div className="animated-blob"></div>
       <header className="container mx-auto px-6 py-6 flex justify-between items-center relative z-10">
         <Link href={`/${lang}`} className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
           memori.
@@ -81,21 +71,21 @@ export default function FeaturesPage({ params: { lang } }: { params: { lang: str
                     {typeof feature.free === 'boolean' ? (
                       feature.free ? (
                         <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      ) : (
+                        <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      )
                     ) : (
-                      <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    )
-                  ) : (
-                    <span className="text-gray-300">{feature.free}</span>
-                  )}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                  {typeof feature.premium === 'boolean' ? (
-                    feature.premium ? (
-                      <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <span className="text-gray-300">{feature.free}</span>
+                    )}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
+                    {typeof feature.premium === 'boolean' ? (
+                      feature.premium ? (
+                        <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     ) : (
