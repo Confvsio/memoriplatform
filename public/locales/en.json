@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "memori. - Your AI-Powered Learning Ecosystem",
-    "description": "Enhance your learning and productivity with memori's Web3-powered platform."
+    "title": "memori. - Your All-in-One Learning Platform",
+    "description": "Enhance your learning and productivity with memori's comprehensive tools and features."
   },
   "nav": {
     "features": "Features",
@@ -11,24 +11,36 @@
     "signup": "Get Started"
   },
   "hero": {
-    "title": "Unlock Your Mind's Potential with Web3",
-    "subtitle": "AI-Powered Learning & Productivity Ecosystem",
+    "title": "Unlock Your Learning Potential",
+    "subtitle": "Comprehensive Learning & Productivity Platform",
     "cta": "Start Your Journey"
   },
   "features": {
-    "title": "Revolutionary Features",
+    "title": "Key Features",
     "items": [
       {
-        "title": "Adaptive Learning",
-        "description": "AI-driven personalized learning paths tailored to your goals and progress."
+        "title": "Customizable Flashcards",
+        "description": "Create multimedia flashcards with text, images, and audio. Benefit from a spaced repetition system for optimal retention."
       },
       {
-        "title": "Web3 Integration",
-        "description": "Decentralized data storage and blockchain-based credentials for true ownership of your learning journey."
+        "title": "Structured Note-Taking",
+        "description": "Organize notes hierarchically with rich text editing, supporting code snippets and mathematical equations."
       },
       {
-        "title": "AI Insights",
-        "description": "Advanced analytics and recommendations to optimize your learning and productivity."
+        "title": "Mind Mapping Tool",
+        "description": "Create visual representations of concepts and collaborate on mind maps in real-time."
+      },
+      {
+        "title": "Progress Tracking",
+        "description": "Visualize learning progress, set goals, and get detailed insights on study habits and areas for improvement."
+      },
+      {
+        "title": "AI-Powered Recommendations",
+        "description": "Receive personalized learning material suggestions and study schedules based on your progress and goals."
+      },
+      {
+        "title": "Customizable Dashboard",
+        "description": "Personalize your dashboard layout with widgets for tracking progress, tasks, and learning resources."
       }
     ]
   },
@@ -37,36 +49,36 @@
     "cta": "Select Plan",
     "plans": [
       {
-        "name": "Basic",
-        "price": "Free",
+        "name": "Free",
+        "price": "€0/month",
         "features": [
-          "Core learning features",
-          "Limited Web3 integration",
-          "Basic AI insights"
+          "Basic access to all features",
+          "Usage limits apply",
+          "Ad-supported"
         ]
       },
       {
-        "name": "Pro",
-        "price": "$9.99/month",
+        "name": "Premium Individual",
+        "price": "€4.99/month",
         "features": [
-          "Advanced learning tools",
-          "Full Web3 integration",
-          "Comprehensive AI insights"
+          "Unlimited access to all features",
+          "Ad-free experience",
+          "Priority customer support"
         ]
       },
       {
-        "name": "Family",
-        "price": "$24.99/month",
+        "name": "Premium Family",
+        "price": "€14.99/month",
         "features": [
-          "Everything in Pro",
-          "Up to 5 family members",
-          "Shared learning experiences"
+          "Up to 5 user accounts",
+          "Shared family dashboard",
+          "All Premium Individual features"
         ]
       }
     ]
   },
   "cta": {
-    "title": "Ready to Revolutionize Your Learning with Web3?",
+    "title": "Ready to Transform Your Learning Experience?",
     "button": "Join memori. Today"
   },
   "footer": {

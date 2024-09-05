@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "memori. - Votre Écosystème d'Apprentissage Alimenté par l'IA",
-    "description": "Améliorez votre apprentissage et votre productivité avec la plateforme Web3 de memori."
+    "title": "memori. - Votre Plateforme d'Apprentissage Tout-en-Un",
+    "description": "Améliorez votre apprentissage et votre productivité avec les outils et fonctionnalités complets de memori."
   },
   "nav": {
     "features": "Fonctionnalités",
@@ -11,24 +11,36 @@
     "signup": "Commencer"
   },
   "hero": {
-    "title": "Libérez le Potentiel de Votre Esprit avec Web3",
-    "subtitle": "Écosystème d'Apprentissage et de Productivité Alimenté par l'IA",
+    "title": "Libérez Votre Potentiel d'Apprentissage",
+    "subtitle": "Plateforme Complète d'Apprentissage et de Productivité",
     "cta": "Commencez Votre Voyage"
   },
   "features": {
-    "title": "Fonctionnalités Révolutionnaires",
+    "title": "Fonctionnalités Clés",
     "items": [
       {
-        "title": "Apprentissage Adaptatif",
-        "description": "Parcours d'apprentissage personnalisés par l'IA, adaptés à vos objectifs et progrès."
+        "title": "Cartes Mémoire Personnalisables",
+        "description": "Créez des cartes mémoire multimédias avec texte, images et audio. Bénéficiez d'un système de répétition espacée pour une rétention optimale."
       },
       {
-        "title": "Intégration Web3",
-        "description": "Stockage de données décentralisé et certifications basées sur la blockchain pour une véritable propriété de votre parcours d'apprentissage."
+        "title": "Prise de Notes Structurée",
+        "description": "Organisez vos notes de manière hiérarchique avec un éditeur de texte riche, prenant en charge les extraits de code et les équations mathématiques."
       },
       {
-        "title": "Insights IA",
-        "description": "Analyses avancées et recommandations pour optimiser votre apprentissage et votre productivité."
+        "title": "Outil de Cartographie Mentale",
+        "description": "Créez des représentations visuelles de concepts et collaborez sur des cartes mentales en temps réel."
+      },
+      {
+        "title": "Suivi des Progrès",
+        "description": "Visualisez vos progrès d'apprentissage, fixez des objectifs et obtenez des insights détaillés sur vos habitudes d'étude et vos domaines d'amélioration."
+      },
+      {
+        "title": "Recommandations IA",
+        "description": "Recevez des suggestions personnalisées de matériel d'apprentissage et des emplois du temps d'étude basés sur vos progrès et objectifs."
+      },
+      {
+        "title": "Tableau de Bord Personnalisable",
+        "description": "Personnalisez la disposition de votre tableau de bord avec des widgets pour suivre vos progrès, tâches et ressources d'apprentissage."
       }
     ]
   },
@@ -37,36 +49,36 @@
     "cta": "Sélectionner le Plan",
     "plans": [
       {
-        "name": "Basique",
-        "price": "Gratuit",
+        "name": "Gratuit",
+        "price": "0€/mois",
         "features": [
-          "Fonctionnalités d'apprentissage de base",
-          "Intégration Web3 limitée",
-          "Insights IA basiques"
+          "Accès de base à toutes les fonctionnalités",
+          "Limites d'utilisation applicables",
+          "Avec publicités"
         ]
       },
       {
-        "name": "Pro",
-        "price": "9,99€/mois",
+        "name": "Premium Individuel",
+        "price": "4,99€/mois",
         "features": [
-          "Outils d'apprentissage avancés",
-          "Intégration Web3 complète",
-          "Insights IA complets"
+          "Accès illimité à toutes les fonctionnalités",
+          "Expérience sans publicité",
+          "Support client prioritaire"
         ]
       },
       {
-        "name": "Famille",
-        "price": "24,99€/mois",
+        "name": "Premium Famille",
+        "price": "14,99€/mois",
         "features": [
-          "Tout ce qui est inclus dans Pro",
-          "Jusqu'à 5 membres de la famille",
-          "Expériences d'apprentissage partagées"
+          "Jusqu'à 5 comptes utilisateurs",
+          "Tableau de bord familial partagé",
+          "Toutes les fonctionnalités Premium Individuel"
         ]
       }
     ]
   },
   "cta": {
-    "title": "Prêt à Révolutionner Votre Apprentissage avec Web3 ?",
+    "title": "Prêt à Transformer Votre Expérience d'Apprentissage ?",
     "button": "Rejoignez memori. Aujourd'hui"
   },
   "footer": {
