@@ -1,46 +1,33 @@
 {
   "metadata": {
-    "title": "memori. - Your All-in-One Learning Platform",
-    "description": "Enhance your learning and productivity with memori's comprehensive tools and features."
+    "title": "memori. - Elevate Your Learning Experience",
+    "description": "Unlock your potential with memori's comprehensive learning and productivity platform."
   },
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
-    "about": "About",
     "login": "Log In",
     "signup": "Get Started"
   },
   "hero": {
-    "title": "Unlock Your Learning Potential",
-    "subtitle": "Comprehensive Learning & Productivity Platform",
+    "title": "Elevate Your Learning Experience",
+    "subtitle": "Unlock your potential with our comprehensive learning and productivity platform.",
     "cta": "Start Your Journey"
   },
   "features": {
-    "title": "Key Features",
+    "title": "Powerful Features",
     "items": [
       {
-        "title": "Customizable Flashcards",
-        "description": "Create multimedia flashcards with text, images, and audio. Benefit from a spaced repetition system for optimal retention."
+        "title": "Smart Learning Tools",
+        "description": "Customizable flashcards, adaptive quizzes, and structured note-taking to enhance your learning process."
       },
       {
-        "title": "Structured Note-Taking",
-        "description": "Organize notes hierarchically with rich text editing, supporting code snippets and mathematical equations."
+        "title": "Productivity Suite",
+        "description": "Integrated task management, habit tracking, and Pomodoro timer to boost your productivity."
       },
       {
-        "title": "Mind Mapping Tool",
-        "description": "Create visual representations of concepts and collaborate on mind maps in real-time."
-      },
-      {
-        "title": "Progress Tracking",
-        "description": "Visualize learning progress, set goals, and get detailed insights on study habits and areas for improvement."
-      },
-      {
-        "title": "AI-Powered Recommendations",
-        "description": "Receive personalized learning material suggestions and study schedules based on your progress and goals."
-      },
-      {
-        "title": "Customizable Dashboard",
-        "description": "Personalize your dashboard layout with widgets for tracking progress, tasks, and learning resources."
+        "title": "AI-Powered Insights",
+        "description": "Personalized recommendations, progress tracking, and advanced analytics to optimize your learning journey."
       }
     ]
   },
@@ -78,7 +65,7 @@
     ]
   },
   "cta": {
-    "title": "Ready to Transform Your Learning Experience?",
+    "title": "Ready to Transform Your Learning?",
     "button": "Join memori. Today"
   },
   "footer": {

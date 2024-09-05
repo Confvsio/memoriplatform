@@ -1,46 +1,33 @@
 {
   "metadata": {
-    "title": "memori. - Votre Plateforme d'Apprentissage Tout-en-Un",
-    "description": "Améliorez votre apprentissage et votre productivité avec les outils et fonctionnalités complets de memori."
+    "title": "memori. - Élevez Votre Expérience d'Apprentissage",
+    "description": "Libérez votre potentiel avec la plateforme complète d'apprentissage et de productivité de memori."
   },
   "nav": {
     "features": "Fonctionnalités",
     "pricing": "Tarifs",
-    "about": "À propos",
     "login": "Connexion",
     "signup": "Commencer"
   },
   "hero": {
-    "title": "Libérez Votre Potentiel d'Apprentissage",
-    "subtitle": "Plateforme Complète d'Apprentissage et de Productivité",
+    "title": "Élevez Votre Expérience d'Apprentissage",
+    "subtitle": "Libérez votre potentiel avec notre plateforme complète d'apprentissage et de productivité.",
     "cta": "Commencez Votre Voyage"
   },
   "features": {
-    "title": "Fonctionnalités Clés",
+    "title": "Fonctionnalités Puissantes",
     "items": [
       {
-        "title": "Cartes Mémoire Personnalisables",
-        "description": "Créez des cartes mémoire multimédias avec texte, images et audio. Bénéficiez d'un système de répétition espacée pour une rétention optimale."
+        "title": "Outils d'Apprentissage Intelligents",
+        "description": "Cartes mémoire personnalisables, quiz adaptatifs et prise de notes structurée pour améliorer votre processus d'apprentissage."
       },
       {
-        "title": "Prise de Notes Structurée",
-        "description": "Organisez vos notes de manière hiérarchique avec un éditeur de texte riche, prenant en charge les extraits de code et les équations mathématiques."
+        "title": "Suite de Productivité",
+        "description": "Gestion de tâches intégrée, suivi des habitudes et minuteur Pomodoro pour booster votre productivité."
       },
       {
-        "title": "Outil de Cartographie Mentale",
-        "description": "Créez des représentations visuelles de concepts et collaborez sur des cartes mentales en temps réel."
-      },
-      {
-        "title": "Suivi des Progrès",
-        "description": "Visualisez vos progrès d'apprentissage, fixez des objectifs et obtenez des insights détaillés sur vos habitudes d'étude et vos domaines d'amélioration."
-      },
-      {
-        "title": "Recommandations IA",
-        "description": "Recevez des suggestions personnalisées de matériel d'apprentissage et des emplois du temps d'étude basés sur vos progrès et objectifs."
-      },
-      {
-        "title": "Tableau de Bord Personnalisable",
-        "description": "Personnalisez la disposition de votre tableau de bord avec des widgets pour suivre vos progrès, tâches et ressources d'apprentissage."
+        "title": "Insights Alimentés par l'IA",
+        "description": "Recommandations personnalisées, suivi des progrès et analyses avancées pour optimiser votre parcours d'apprentissage."
       }
     ]
   },
@@ -78,7 +65,7 @@
     ]
   },
   "cta": {
-    "title": "Prêt à Transformer Votre Expérience d'Apprentissage ?",
+    "title": "Prêt à Transformer Votre Apprentissage ?",
     "button": "Rejoignez memori. Aujourd'hui"
   },
   "footer": {
