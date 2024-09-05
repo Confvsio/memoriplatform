@@ -19,7 +19,7 @@
     "items": [
       {
         "title": "Outils d'Apprentissage Intelligents",
-        "description": "Cartes mémoire personnalisables, quiz adaptatifs et prise de notes structurée pour améliorer votre processus d'apprentissage."
+        "description": "Flashcards personnalisables, quiz adaptatifs et prise de notes structurée pour améliorer votre processus d'apprentissage."
       },
       {
         "title": "Suite de Productivité",
@@ -85,14 +85,14 @@
     "family": "Famille",
     "features": [
       {
-        "name": "Cartes mémoire personnalisables",
+        "name": "Flashcards",
         "free": true,
         "premium": true,
         "family": true
       },
       {
         "name": "Générateur de quiz",
-        "free": true,
+        "free": false,
         "premium": true,
         "family": true
       },
@@ -103,8 +103,8 @@
         "family": true
       },
       {
-        "name": "Outil de cartographie mentale",
-        "free": false,
+        "name": "Outil de Carte Mentale",
+        "free": true,
         "premium": true,
         "family": true
       },
@@ -141,7 +141,7 @@
       {
         "name": "Espaces d'apprentissage collaboratif",
         "free": false,
-        "premium": false,
+        "premium": true,
         "family": true
       },
       {
