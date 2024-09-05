@@ -1,34 +1,34 @@
 {
   "metadata": {
-    "title": "memori. - Votre Plateforme d'Apprentissage Alimentée par l'IA",
-    "description": "Améliorez votre apprentissage et votre productivité avec memori."
+    "title": "memori. - Votre Écosystème d'Apprentissage Alimenté par l'IA",
+    "description": "Améliorez votre apprentissage et votre productivité avec la plateforme Web3 de memori."
   },
   "nav": {
     "features": "Fonctionnalités",
     "pricing": "Tarifs",
     "about": "À propos",
     "login": "Connexion",
-    "signup": "S'inscrire"
+    "signup": "Commencer"
   },
   "hero": {
-    "title": "Libérez le Potentiel de Votre Esprit",
-    "subtitle": "Plateforme d'Apprentissage et de Productivité Alimentée par l'IA",
-    "cta": "Commencez Gratuitement"
+    "title": "Libérez le Potentiel de Votre Esprit avec Web3",
+    "subtitle": "Écosystème d'Apprentissage et de Productivité Alimenté par l'IA",
+    "cta": "Commencez Votre Voyage"
   },
   "features": {
-    "title": "Fonctionnalités Clés",
+    "title": "Fonctionnalités Révolutionnaires",
     "items": [
       {
         "title": "Apprentissage Adaptatif",
-        "description": "Parcours d'apprentissage personnalisés adaptés à vos objectifs et progrès."
+        "description": "Parcours d'apprentissage personnalisés par l'IA, adaptés à vos objectifs et progrès."
       },
       {
-        "title": "Suite de Productivité",
-        "description": "Outils intégrés pour gérer les tâches, fixer des objectifs et suivre les habitudes."
+        "title": "Intégration Web3",
+        "description": "Stockage de données décentralisé et certifications basées sur la blockchain pour une véritable propriété de votre parcours d'apprentissage."
       },
       {
         "title": "Insights IA",
-        "description": "Analyses avancées et recommandations pour optimiser votre apprentissage."
+        "description": "Analyses avancées et recommandations pour optimiser votre apprentissage et votre productivité."
       }
     ]
   },
@@ -41,40 +41,38 @@
         "price": "Gratuit",
         "features": [
           "Fonctionnalités d'apprentissage de base",
-          "Outils de productivité limités",
-          "Analyses basiques"
+          "Intégration Web3 limitée",
+          "Insights IA basiques"
         ]
       },
       {
         "name": "Pro",
-        "price": "4,99€/mois",
+        "price": "9,99€/mois",
         "features": [
           "Outils d'apprentissage avancés",
-          "Suite complète de productivité",
-          "Insights IA détaillés"
+          "Intégration Web3 complète",
+          "Insights IA complets"
         ]
       },
       {
-        "name": "Équipe",
-        "price": "14,99€/mois",
+        "name": "Famille",
+        "price": "24,99€/mois",
         "features": [
           "Tout ce qui est inclus dans Pro",
-          "Apprentissage collaboratif",
-          "Analyses et rapports d'équipe"
+          "Jusqu'à 5 membres de la famille",
+          "Expériences d'apprentissage partagées"
         ]
       }
     ]
   },
   "cta": {
-    "title": "Prêt à Révolutionner Votre Apprentissage ?",
-    "button": "Commencez Votre Essai Gratuit"
+    "title": "Prêt à Révolutionner Votre Apprentissage avec Web3 ?",
+    "button": "Rejoignez memori. Aujourd'hui"
   },
   "footer": {
     "terms": "Conditions",
     "privacy": "Confidentialité"
   },
-
-
   "dashboard": {
     "welcome": "Bienvenue sur votre tableau de bord",
     "description": "Ici, vous pouvez gérer vos tâches d'apprentissage et de productivité."

@@ -1,34 +1,34 @@
 {
   "metadata": {
-    "title": "memori. - Your AI-Powered Learning Platform",
-    "description": "Enhance your learning and productivity with memori."
+    "title": "memori. - Your AI-Powered Learning Ecosystem",
+    "description": "Enhance your learning and productivity with memori's Web3-powered platform."
   },
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
     "about": "About",
     "login": "Log In",
-    "signup": "Sign Up"
+    "signup": "Get Started"
   },
   "hero": {
-    "title": "Unlock Your Mind's Potential",
-    "subtitle": "AI-Powered Learning & Productivity Platform",
-    "cta": "Get Started for Free"
+    "title": "Unlock Your Mind's Potential with Web3",
+    "subtitle": "AI-Powered Learning & Productivity Ecosystem",
+    "cta": "Start Your Journey"
   },
   "features": {
-    "title": "Key Features",
+    "title": "Revolutionary Features",
     "items": [
       {
         "title": "Adaptive Learning",
-        "description": "Personalized learning paths tailored to your goals and progress."
+        "description": "AI-driven personalized learning paths tailored to your goals and progress."
       },
       {
-        "title": "Productivity Suite",
-        "description": "Integrated tools to manage tasks, set goals, and track habits."
+        "title": "Web3 Integration",
+        "description": "Decentralized data storage and blockchain-based credentials for true ownership of your learning journey."
       },
       {
         "title": "AI Insights",
-        "description": "Advanced analytics and recommendations to optimize your learning."
+        "description": "Advanced analytics and recommendations to optimize your learning and productivity."
       }
     ]
   },
@@ -41,40 +41,38 @@
         "price": "Free",
         "features": [
           "Core learning features",
-          "Limited productivity tools",
-          "Basic analytics"
+          "Limited Web3 integration",
+          "Basic AI insights"
         ]
       },
       {
         "name": "Pro",
-        "price": "$4.99/month",
+        "price": "$9.99/month",
         "features": [
           "Advanced learning tools",
-          "Full productivity suite",
-          "Detailed AI insights"
+          "Full Web3 integration",
+          "Comprehensive AI insights"
         ]
       },
       {
-        "name": "Team",
-        "price": "$14.99/month",
+        "name": "Family",
+        "price": "$24.99/month",
         "features": [
           "Everything in Pro",
-          "Collaborative learning",
-          "Team analytics and reporting"
+          "Up to 5 family members",
+          "Shared learning experiences"
         ]
       }
     ]
   },
   "cta": {
-    "title": "Ready to Revolutionize Your Learning?",
-    "button": "Start Your Free Trial"
+    "title": "Ready to Revolutionize Your Learning with Web3?",
+    "button": "Join memori. Today"
   },
   "footer": {
     "terms": "Terms",
     "privacy": "Privacy"
   },
-
-
   "dashboard": {
     "welcome": "Welcome to your Dashboard",
     "description": "Here you can manage your learning and productivity tasks."
