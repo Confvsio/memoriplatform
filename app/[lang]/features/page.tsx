@@ -1,3 +1,4 @@
+'use client'
 import { getDictionary } from '../../../lib/dictionary'
 import Link from 'next/link'
 import { useState } from 'react'
