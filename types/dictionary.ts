@@ -53,9 +53,9 @@ export interface Dictionary {
     family: string;
     features: Array<{
       name: string;
-      free: boolean;
-      premium: boolean;
-      family: boolean;
+      free: boolean | string;
+      premium: boolean | string;
+      family: boolean | string;
     }>;
   };
 }

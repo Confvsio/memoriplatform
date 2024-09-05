@@ -39,18 +39,20 @@
         "name": "Basique",
         "price": "Gratuit",
         "features": [
-          "Jusqu'à 500 flashcards",
-          "5 cartes mentales",
-          "Analyses de base"
+          "100 flashcards",
+          "10 cartes mentales",
+          "Analyses de base",
+          "Génération de quiz limitée"
         ]
       },
       {
         "name": "Premium",
         "price": "4,99€/mois",
         "features": [
-          "Flashcards illimitées",
-          "Cartes mentales illimitées",
-          "Insights IA avancés"
+          "Flashcards et cartes mentales illimitées",
+          "Insights IA avancés",
+          "Fonctionnalités collaboratives",
+          "Support prioritaire"
         ]
       },
       {
@@ -59,7 +61,8 @@
         "features": [
           "Jusqu'à 5 comptes utilisateurs",
           "Tableau de bord familial partagé",
-          "Toutes les fonctionnalités Premium"
+          "Toutes les fonctionnalités Premium",
+          "Suivi des progrès familiaux"
         ]
       }
     ]
@@ -85,42 +88,96 @@
     "features": [
       {
         "name": "Flashcards",
-        "free": "500",
-        "premium": true,
-        "family": true
+        "free": "100",
+        "premium": "Illimité",
+        "family": "Illimité"
       },
       {
         "name": "Cartes Mentales",
-        "free": "5",
+        "free": "10",
+        "premium": "Illimité",
+        "family": "Illimité"
+      },
+      {
+        "name": "Générateur de Quiz",
+        "free": "5/mois",
+        "premium": "Illimité",
+        "family": "Illimité"
+      },
+      {
+        "name": "Prise de Notes Structurée",
+        "free": true,
         "premium": true,
         "family": true
       },
       {
-        "name": "Quiz",
-        "free": "10/mois",
+        "name": "Gestionnaire de Ressources",
+        "free": "Basique",
+        "premium": "Avancé",
+        "family": "Avancé"
+      },
+      {
+        "name": "Suivi des Progrès",
+        "free": "Basique",
+        "premium": "Avancé",
+        "family": "Avancé"
+      },
+      {
+        "name": "Liste de Tâches & Gestion",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Suivi des Habitudes",
+        "free": "3 habitudes",
+        "premium": "Illimité",
+        "family": "Illimité"
+      },
+      {
+        "name": "Apprentissage Collaboratif",
+        "free": false,
         "premium": true,
         "family": true
       },
       {
         "name": "Recommandations IA",
-        "free": false,
+        "free": "Basique",
+        "premium": "Avancé",
+        "family": "Avancé"
+      },
+      {
+        "name": "Éléments de Gamification",
+        "free": "Basique",
+        "premium": "Avancé",
+        "family": "Avancé"
+      },
+      {
+        "name": "Tableau de Bord Personnalisable",
+        "free": "Limité",
+        "premium": "Complet",
+        "family": "Complet"
+      },
+      {
+        "name": "Langues Multiples",
+        "free": "2 langues",
+        "premium": "Toutes les langues",
+        "family": "Toutes les langues"
+      },
+      {
+        "name": "Minuteur Pomodoro",
+        "free": true,
         "premium": true,
         "family": true
+      },
+      {
+        "name": "Partage Social",
+        "free": "Limité",
+        "premium": "Complet",
+        "family": "Complet"
       },
       {
         "name": "Analyses Avancées",
-        "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Apprentissage Collaboratif",
-        "free": false,
-        "premium": false,
-        "family": true
-      },
-      {
-        "name": "Support Prioritaire",
         "free": false,
         "premium": true,
         "family": true

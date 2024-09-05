@@ -39,18 +39,20 @@
         "name": "Basic",
         "price": "Free",
         "features": [
-          "Up to 500 flashcards",
-          "5 mind maps",
-          "Basic analytics"
+          "100 flashcards",
+          "10 mind maps",
+          "Basic analytics",
+          "Limited quiz generation"
         ]
       },
       {
         "name": "Premium",
         "price": "€4.99/month",
         "features": [
-          "Unlimited flashcards",
-          "Unlimited mind maps",
-          "Advanced AI insights"
+          "Unlimited flashcards and mind maps",
+          "Advanced AI insights",
+          "Collaborative features",
+          "Priority support"
         ]
       },
       {
@@ -59,7 +61,8 @@
         "features": [
           "Up to 5 user accounts",
           "Shared family dashboard",
-          "All Premium features"
+          "All Premium features",
+          "Family progress tracking"
         ]
       }
     ]
@@ -85,42 +88,96 @@
     "features": [
       {
         "name": "Flashcards",
-        "free": "500",
-        "premium": true,
-        "family": true
+        "free": "100",
+        "premium": "Unlimited",
+        "family": "Unlimited"
       },
       {
         "name": "Mind Maps",
-        "free": "5",
+        "free": "10",
+        "premium": "Unlimited",
+        "family": "Unlimited"
+      },
+      {
+        "name": "Quiz Generator",
+        "free": "5/month",
+        "premium": "Unlimited",
+        "family": "Unlimited"
+      },
+      {
+        "name": "Structured Note-Taking",
+        "free": true,
         "premium": true,
         "family": true
       },
       {
-        "name": "Quizzes",
-        "free": "10/month",
+        "name": "Resource Manager",
+        "free": "Basic",
+        "premium": "Advanced",
+        "family": "Advanced"
+      },
+      {
+        "name": "Progress Tracking",
+        "free": "Basic",
+        "premium": "Advanced",
+        "family": "Advanced"
+      },
+      {
+        "name": "To-Do List & Task Management",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Habit Tracker",
+        "free": "3 habits",
+        "premium": "Unlimited",
+        "family": "Unlimited"
+      },
+      {
+        "name": "Collaborative Learning",
+        "free": false,
         "premium": true,
         "family": true
       },
       {
         "name": "AI-Powered Recommendations",
-        "free": false,
+        "free": "Basic",
+        "premium": "Advanced",
+        "family": "Advanced"
+      },
+      {
+        "name": "Gamification Elements",
+        "free": "Basic",
+        "premium": "Advanced",
+        "family": "Advanced"
+      },
+      {
+        "name": "Customizable Dashboard",
+        "free": "Limited",
+        "premium": "Full",
+        "family": "Full"
+      },
+      {
+        "name": "Multiple Languages",
+        "free": "2 languages",
+        "premium": "All languages",
+        "family": "All languages"
+      },
+      {
+        "name": "Pomodoro Timer",
+        "free": true,
         "premium": true,
         "family": true
+      },
+      {
+        "name": "Social Sharing",
+        "free": "Limited",
+        "premium": "Full",
+        "family": "Full"
       },
       {
         "name": "Advanced Analytics",
-        "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Collaborative Learning",
-        "free": false,
-        "premium": false,
-        "family": true
-      },
-      {
-        "name": "Priority Support",
         "free": false,
         "premium": true,
         "family": true

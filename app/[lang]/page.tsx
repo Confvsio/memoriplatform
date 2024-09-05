@@ -16,7 +16,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
   if (!dict) return null // or a loading spinner
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white relative overflow-hidden animated-gradient">
       {[...Array(5)].map((_, i) => (
         <div key={i} className="animated-blob w-64 h-64 rounded-full absolute"
              style={{
