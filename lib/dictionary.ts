@@ -1,6 +1,3 @@
-// lib/dictionary.ts
-
-import 'server-only'
 import type { Dictionary } from '../types/dictionary'
 
 const dictionaries = {

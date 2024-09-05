@@ -1,11 +1,19 @@
-'use client'
-import { getDictionary } from '../../../lib/dictionary'
-import Link from 'next/link'
-import { useState } from 'react'
+"use client";
 
-export default async function FeaturesPage({ params: { lang } }: { params: { lang: string } }) {
-  const dict = await getDictionary(lang)
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { getDictionary } from '../../../lib/dictionary'
+import { Dictionary } from '../../../types/dictionary'
+
+export default function FeaturesPage({ params: { lang } }: { params: { lang: string } }) {
+  const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    getDictionary(lang).then(setDict)
+  }, [lang])
+
+  if (!dict) return null // or a loading spinner
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
@@ -74,7 +82,7 @@ export default async function FeaturesPage({ params: { lang } }: { params: { lan
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     ) : (
-                      <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
                     )}

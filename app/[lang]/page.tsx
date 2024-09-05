@@ -1,11 +1,19 @@
-'use client'
-import { getDictionary } from '../../lib/dictionary'
-import Link from 'next/link'
-import { useState } from 'react'
+"use client";
 
-export default async function LandingPage({ params: { lang } }: { params: { lang: string } }) {
-  const dict = await getDictionary(lang)
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { getDictionary } from '../../lib/dictionary'
+import { Dictionary } from '../../types/dictionary'
+
+export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
+  const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  useEffect(() => {
+    getDictionary(lang).then(setDict)
+  }, [lang])
+
+  if (!dict) return null // or a loading spinner
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
