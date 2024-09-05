@@ -1,12 +1,17 @@
 import '../globals.css'
 import { Metadata } from 'next'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { getDictionary } from '@/lib/dictionary'
 
-export const metadata: Metadata = {
-  title: 'memori.',
-  description: 'Your personal learning and productivity platform',
-  icons: {
-    icon: '/favicon.ico',
-  },
+export async function generateMetadata({ params: { lang } }: { params: { lang: string } }): Promise<Metadata> {
+  const dict = await getDictionary(lang)
+  return {
+    title: dict.metadata.title,
+    description: dict.metadata.description,
+    icons: {
+      icon: '/favicon.ico',
+    },
+  }
 }
 
 export default function RootLayout({
@@ -21,7 +26,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body>{children}</body>
+      <body>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   )
 }

@@ -6,7 +6,9 @@
   "nav": {
     "features": "Fonctionnalités",
     "pricing": "Tarifs",
-    "signup": "Commencer"
+    "signup": "Commencer",
+    "login": "Connexion",
+    "dashboard": "Tableau de bord"
   },
   "hero": {
     "title": "Élevez Votre Expérience d'Apprentissage",
@@ -165,5 +167,31 @@
         "family": true
       }
     ]
+  },
+  "auth": {
+    "login": {
+      "title": "Connexion",
+      "email": "Email",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "forgotPassword": "Mot de passe oublié ?",
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire"
+    },
+    "signup": {
+      "title": "Inscription",
+      "email": "Email",
+      "password": "Mot de passe",
+      "confirmPassword": "Confirmer le mot de passe",
+      "submit": "S'inscrire",
+      "haveAccount": "Vous avez déjà un compte ?",
+      "logIn": "Se connecter"
+    },
+    "forgotPassword": {
+      "title": "Mot de passe oublié",
+      "email": "Email",
+      "submit": "Réinitialiser le mot de passe",
+      "backToLogin": "Retour à la connexion"
+    }
   }
 }

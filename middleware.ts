@@ -1,23 +1,26 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const res = NextResponse.next()
+  const supabase = createMiddlewareClient({ req: request, res })
 
-  // If the path already has a language prefix, allow the request
+  // Check if the path already has a language prefix
   if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
-    // Basic auth check (you'll need to implement proper auth)
-    const isAuthenticated = checkAuth(request)
+    const { data: { session } } = await supabase.auth.getSession()
     
-    if (pathname.includes('/dashboard') && !isAuthenticated) {
-      // Redirect to landing page if not authenticated
-      return NextResponse.redirect(new URL(`/${pathname.split('/')[1]}`, request.url))
+    if (pathname.includes('/dashboard') && !session) {
+      // Redirect to login page if not authenticated
+      const lang = pathname.split('/')[1]
+      return NextResponse.redirect(new URL(`/${lang}/login`, request.url))
     }
     
-    return NextResponse.next()
+    return res
   }
 
-  // Language redirection logic (same as before)
+  // Language redirection logic
   const acceptLanguage = request.headers.get('Accept-Language') || ''
   const preferredLanguage = acceptLanguage.split(',')[0].split('-')[0]
   const supportedLanguages = ['en', 'fr']
@@ -25,12 +28,6 @@ export function middleware(request: NextRequest) {
   
   const newUrl = new URL(`/${language}${pathname}`, request.url)
   return NextResponse.redirect(newUrl)
-}
-
-// Placeholder for auth check (implement your actual auth logic here)
-function checkAuth(request: NextRequest): boolean {
-  // For now, always return false (user not authenticated)
-  return false
 }
 
 export const config = {
