@@ -8,7 +8,6 @@ export interface Dictionary {
   nav: {
     features: string;
     pricing: string;
-    about: string;
     login: string;
     signup: string;
   };
@@ -27,6 +26,7 @@ export interface Dictionary {
   pricing: {
     title: string;
     cta: string;
+    viewFeatures: string;
     plans: Array<{
       name: string;
       price: string;
@@ -44,5 +44,18 @@ export interface Dictionary {
   dashboard: {
     welcome: string;
     description: string;
+  };
+  featuresPage: {
+    title: string;
+    feature: string;
+    free: string;
+    premium: string;
+    family: string;
+    features: Array<{
+      name: string;
+      free: boolean;
+      premium: boolean;
+      family: boolean;
+    }>;
   };
 }

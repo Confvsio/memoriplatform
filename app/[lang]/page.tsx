@@ -7,7 +7,7 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
   const dict = await getDictionary(lang)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white">
       {/* Header */}
       <header className="container mx-auto px-6 py-6 flex justify-between items-center">
         <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">memori.</h1>
@@ -16,7 +16,7 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           <Link href="#pricing" className="text-gray-300 hover:text-white transition">{dict.nav.pricing}</Link>
           <Link href="/login" className="text-gray-300 hover:text-white transition">{dict.nav.login}</Link>
         </nav>
-        <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105">
+        <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out">
           {dict.nav.signup}
         </Link>
       </header>
@@ -27,7 +27,7 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           {dict.hero.title}
         </h2>
         <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">{dict.hero.subtitle}</p>
-        <Link href="/signup" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg inline-flex items-center">
+        <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 ease-in-out inline-flex items-center">
           {dict.hero.cta}
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -36,14 +36,15 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-gray-800 bg-opacity-50">
+      <section id="features" className="py-20">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             {dict.features.title}
           </h3>
           <div className="grid md:grid-cols-3 gap-10">
             {dict.features.items.map((feature, index) => (
-              <div key={index} className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg border border-gray-700 transition duration-300 ease-in-out transform hover:scale-105">
+              <div key={index} className="bg-gray-800 bg-opacity-50 p-6 rounded-lg shadow-lg backdrop-filter backdrop-blur-lg border border-gray-700 transition duration-300 ease-in-out group">
+                <div className="animated-border"></div>
                 <h4 className="text-xl font-semibold mb-3 text-blue-400">{feature.title}</h4>
                 <p className="text-gray-300">{feature.description}</p>
               </div>
@@ -60,7 +61,8 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
           </h3>
           <div className="grid md:grid-cols-3 gap-10">
             {dict.pricing.plans.map((plan, index) => (
-              <div key={index} className="bg-gray-800 bg-opacity-50 p-8 rounded-lg text-center shadow-lg backdrop-filter backdrop-blur-lg border border-gray-700 transition duration-300 ease-in-out transform hover:scale-105">
+              <div key={index} className="bg-gray-800 bg-opacity-50 p-8 rounded-lg text-center shadow-lg backdrop-filter backdrop-blur-lg border border-gray-700 transition duration-300 ease-in-out group">
+                <div className="animated-border"></div>
                 <h4 className="text-2xl font-semibold mb-4 text-blue-400">{plan.name}</h4>
                 <p className="text-4xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                   {plan.price}
@@ -75,9 +77,14 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
                     </li>
                   ))}
                 </ul>
-                <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105 inline-block">
+                <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition duration-300 ease-in-out inline-block">
                   {dict.pricing.cta}
                 </Link>
+                <div className="mt-4">
+                  <Link href={`/${lang}/features`} className="text-blue-400 hover:text-blue-300 transition">
+                    {dict.pricing.viewFeatures}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -85,19 +92,19 @@ export default async function LandingPage({ params: { lang } }: { params: { lang
       </section>
 
       {/* Call-to-Action Section */}
-      <section className="py-20 text-center bg-gray-800 bg-opacity-50">
+      <section className="py-20 text-center">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             {dict.cta.title}
           </h3>
-          <Link href="/signup" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full text-lg font-semibold inline-block transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+          <Link href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold inline-block transition duration-300 ease-in-out">
             {dict.cta.button}
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-10">
+      <footer className="py-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">

@@ -34,6 +34,7 @@
   "pricing": {
     "title": "Choisissez Votre Plan",
     "cta": "Sélectionner le Plan",
+    "viewFeatures": "Voir toutes les fonctionnalités",
     "plans": [
       {
         "name": "Gratuit",
@@ -75,5 +76,86 @@
   "dashboard": {
     "welcome": "Bienvenue sur votre tableau de bord",
     "description": "Ici, vous pouvez gérer vos tâches d'apprentissage et de productivité."
+  },
+  "featuresPage": {
+    "title": "Comparaison des Fonctionnalités",
+    "feature": "Fonctionnalité",
+    "free": "Gratuit",
+    "premium": "Premium",
+    "family": "Famille",
+    "features": [
+      {
+        "name": "Cartes mémoire personnalisables",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Générateur de quiz",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Prise de notes structurée",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Outil de cartographie mentale",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Gestionnaire de ressources",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Analyses avancées",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Liste de tâches et gestion des tâches",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Suivi des habitudes",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Recommandations alimentées par l'IA",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Espaces d'apprentissage collaboratif",
+        "free": false,
+        "premium": false,
+        "family": true
+      },
+      {
+        "name": "Tableau de bord personnalisable",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Minuteur Pomodoro",
+        "free": true,
+        "premium": true,
+        "family": true
+      }
+    ]
   }
 }

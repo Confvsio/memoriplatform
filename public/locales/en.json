@@ -34,6 +34,7 @@
   "pricing": {
     "title": "Choose Your Plan",
     "cta": "Select Plan",
+    "viewFeatures": "View all features",
     "plans": [
       {
         "name": "Free",
@@ -75,5 +76,86 @@
   "dashboard": {
     "welcome": "Welcome to your Dashboard",
     "description": "Here you can manage your learning and productivity tasks."
+  },
+  "featuresPage": {
+    "title": "Feature Comparison",
+    "feature": "Feature",
+    "free": "Free",
+    "premium": "Premium",
+    "family": "Family",
+    "features": [
+      {
+        "name": "Customizable Flashcards",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Quiz Generator",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Structured Note-Taking",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Mind Mapping Tool",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Resource Manager",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Advanced Analytics",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "To-Do List and Task Management",
+        "free": true,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Habit Tracker",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "AI-Powered Recommendations",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Collaborative Learning Spaces",
+        "free": false,
+        "premium": false,
+        "family": true
+      },
+      {
+        "name": "Customizable Dashboard",
+        "free": false,
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Pomodoro Timer",
+        "free": true,
+        "premium": true,
+        "family": true
+      }
+    ]
   }
 }
