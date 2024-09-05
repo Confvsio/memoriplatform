@@ -11,10 +11,15 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
     const { data: { session } } = await supabase.auth.getSession()
     
-    if (pathname.includes('/dashboard') && !session) {
-      // Redirect to login page if not authenticated
-      const lang = pathname.split('/')[1]
-      return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
+    if (pathname.includes('/dashboard')) {
+      if (!session) {
+        // Redirect to login page if not authenticated
+        const lang = pathname.split('/')[1]
+        return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
+      } else {
+        // Allow access to dashboard if authenticated
+        return res
+      }
     }
     
     return res

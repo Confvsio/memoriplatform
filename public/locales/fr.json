@@ -176,13 +176,15 @@
       "submit": "Se connecter",
       "forgotPassword": "Mot de passe oublié ?",
       "noAccount": "Pas de compte ? Inscrivez-vous",
-      "orContinueWith": "Ou continuez avec"
+      "orContinueWith": "Ou continuez avec",
+      "googleSignIn": "Se connecter avec Google"
     },
     "signup": {
       "title": "Créez votre compte",
       "email": "Adresse e-mail",
       "password": "Mot de passe",
       "submit": "S'inscrire",
+      "googleSignIn": "S'inscrire avec Google",
       "haveAccount": "Vous avez déjà un compte ? Connectez-vous"
     }
   }
