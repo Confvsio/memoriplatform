@@ -12,6 +12,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [dict, setDict] = useState<any>(null)
+  const [error, setError] = useState('')
   const router = useRouter()
   const { user } = useAuth()
 
@@ -29,6 +30,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError('')
     try {
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({ email, password })
@@ -36,11 +38,11 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
       } else {
         const { error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
-        // You might want to show a message to check email for verification
+        // Show a message to check email for verification
+        setError('Please check your email to verify your account.')
       }
-    } catch (error) {
-      console.error('Error:', error)
-      // Handle error (e.g., show error message to user)
+    } catch (error: any) {
+      setError(error.message)
     }
   }
 
@@ -53,22 +55,25 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
         },
       })
       if (error) throw error
-    } catch (error) {
-      console.error('Error:', error)
-      // Handle error (e.g., show error message to user)
+    } catch (error: any) {
+      setError(error.message)
     }
   }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-8 bg-gray-800 p-10 rounded-xl shadow-lg">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
             {isLogin ? dict.auth.login.title : dict.auth.signup.title}
           </h2>
         </div>
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <span className="block sm:inline">{error}</span>
+          </div>
+        )}
         <form className="mt-8 space-y-6" onSubmit={handleEmailAuth}>
-          <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email-address" className="sr-only">
@@ -104,26 +109,6 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                {dict.auth.login.rememberMe}
-              </label>
-            </div>
-
-            <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                {dict.auth.login.forgotPassword}
-              </a>
-            </div>
-          </div>
-
           <div>
             <button
               type="submit"
@@ -140,7 +125,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-gray-900 text-white">
+              <span className="px-2 bg-gray-800 text-white">
                 {dict.auth.login.orContinueWith}
               </span>
             </div>
