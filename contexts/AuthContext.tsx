@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase'
 
 type AuthContextType = {
   user: User | null
+  setUser: (user: User | null) => void
   signIn: (email: string, password: string) => Promise<void>
   signOut: () => Promise<void>
 }
@@ -33,10 +34,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signOut = async () => {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
+    setUser(null)
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, setUser, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   )

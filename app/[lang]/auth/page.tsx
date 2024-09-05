@@ -14,17 +14,24 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const [dict, setDict] = useState<any>(null)
   const [error, setError] = useState('')
   const router = useRouter()
-  const { user } = useAuth()
+  const { user, setUser } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
 
   useEffect(() => {
-    if (user) {
-      router.push(`/${lang}/dashboard`)
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session?.user) {
+        setUser(session.user)
+        router.push(`/${lang}/dashboard`)
+      }
+    })
+
+    return () => {
+      authListener.subscription.unsubscribe()
     }
-  }, [user, router, lang])
+  }, [router, lang, setUser])
 
   if (!dict) return null
 
@@ -38,7 +45,6 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
       } else {
         const { error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
-        // Show a message to check email for verification
         setError('Please check your email to verify your account.')
       }
     } catch (error: any) {
@@ -64,6 +70,11 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-gray-800 p-10 rounded-xl shadow-lg">
         <div>
+          <Link href={`/${lang}`} className="flex justify-center mb-6">
+            <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              memori.
+            </h1>
+          </Link>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-white">
             {isLogin ? dict.auth.login.title : dict.auth.signup.title}
           </h2>
@@ -112,7 +123,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-150 ease-in-out"
             >
               {isLogin ? dict.auth.login.submit : dict.auth.signup.submit}
             </button>
@@ -134,19 +145,20 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
           <div className="mt-6">
             <button
               onClick={handleGoogleAuth}
-              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition duration-150 ease-in-out"
             >
               <span className="sr-only">Sign in with Google</span>
               <svg className="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
               </svg>
+              <span className="ml-2">Google</span>
             </button>
           </div>
         </div>
 
         <div className="text-sm text-center">
           <button
-            className="font-medium text-indigo-600 hover:text-indigo-500"
+            className="font-medium text-indigo-400 hover:text-indigo-300 transition duration-150 ease-in-out"
             onClick={() => setIsLogin(!isLogin)}
           >
             {isLogin ? dict.auth.login.noAccount : dict.auth.signup.haveAccount}
