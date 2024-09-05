@@ -6,7 +6,6 @@
   "nav": {
     "features": "Fonctionnalités",
     "pricing": "Tarifs",
-    "login": "Connexion",
     "signup": "Commencer"
   },
   "hero": {
@@ -37,30 +36,30 @@
     "viewFeatures": "Voir toutes les fonctionnalités",
     "plans": [
       {
-        "name": "Gratuit",
-        "price": "0€/mois",
+        "name": "Basique",
+        "price": "Gratuit",
         "features": [
-          "Accès de base à toutes les fonctionnalités",
-          "Limites d'utilisation applicables",
-          "Avec publicités"
+          "Jusqu'à 500 flashcards",
+          "5 cartes mentales",
+          "Analyses de base"
         ]
       },
       {
-        "name": "Premium Individuel",
+        "name": "Premium",
         "price": "4,99€/mois",
         "features": [
-          "Accès illimité à toutes les fonctionnalités",
-          "Expérience sans publicité",
-          "Support client prioritaire"
+          "Flashcards illimitées",
+          "Cartes mentales illimitées",
+          "Insights IA avancés"
         ]
       },
       {
-        "name": "Premium Famille",
+        "name": "Famille",
         "price": "14,99€/mois",
         "features": [
           "Jusqu'à 5 comptes utilisateurs",
           "Tableau de bord familial partagé",
-          "Toutes les fonctionnalités Premium Individuel"
+          "Toutes les fonctionnalités Premium"
         ]
       }
     ]
@@ -80,79 +79,49 @@
   "featuresPage": {
     "title": "Comparaison des Fonctionnalités",
     "feature": "Fonctionnalité",
-    "free": "Gratuit",
+    "free": "Basique",
     "premium": "Premium",
     "family": "Famille",
     "features": [
       {
         "name": "Flashcards",
-        "free": true,
+        "free": "500",
         "premium": true,
         "family": true
       },
       {
-        "name": "Générateur de quiz",
+        "name": "Cartes Mentales",
+        "free": "5",
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Quiz",
+        "free": "10/mois",
+        "premium": true,
+        "family": true
+      },
+      {
+        "name": "Recommandations IA",
         "free": false,
         "premium": true,
         "family": true
       },
       {
-        "name": "Prise de notes structurée",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Outil de Carte Mentale",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Gestionnaire de ressources",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Analyses avancées",
+        "name": "Analyses Avancées",
         "free": false,
         "premium": true,
         "family": true
       },
       {
-        "name": "Liste de tâches et gestion des tâches",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Suivi des habitudes",
+        "name": "Apprentissage Collaboratif",
         "free": false,
-        "premium": true,
+        "premium": false,
         "family": true
       },
       {
-        "name": "Recommandations alimentées par l'IA",
+        "name": "Support Prioritaire",
         "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Espaces d'apprentissage collaboratif",
-        "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Tableau de bord personnalisable",
-        "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Minuteur Pomodoro",
-        "free": true,
         "premium": true,
         "family": true
       }

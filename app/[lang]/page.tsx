@@ -23,6 +23,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
                background: `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.1)`,
                left: `${Math.random()*100}%`,
                top: `${Math.random()*100}%`,
+               animation: `blob-animation ${20 + i * 2}s infinite alternate`,
              }}
         ></div>
       ))}

@@ -6,7 +6,6 @@
   "nav": {
     "features": "Features",
     "pricing": "Pricing",
-    "login": "Log In",
     "signup": "Get Started"
   },
   "hero": {
@@ -37,30 +36,30 @@
     "viewFeatures": "View all features",
     "plans": [
       {
-        "name": "Free",
-        "price": "€0/month",
+        "name": "Basic",
+        "price": "Free",
         "features": [
-          "Basic access to all features",
-          "Usage limits apply",
-          "Ad-supported"
+          "Up to 500 flashcards",
+          "5 mind maps",
+          "Basic analytics"
         ]
       },
       {
-        "name": "Premium Individual",
+        "name": "Premium",
         "price": "€4.99/month",
         "features": [
-          "Unlimited access to all features",
-          "Ad-free experience",
-          "Priority customer support"
+          "Unlimited flashcards",
+          "Unlimited mind maps",
+          "Advanced AI insights"
         ]
       },
       {
-        "name": "Premium Family",
+        "name": "Family",
         "price": "€14.99/month",
         "features": [
           "Up to 5 user accounts",
           "Shared family dashboard",
-          "All Premium Individual features"
+          "All Premium features"
         ]
       }
     ]
@@ -80,55 +79,25 @@
   "featuresPage": {
     "title": "Feature Comparison",
     "feature": "Feature",
-    "free": "Free",
+    "free": "Basic",
     "premium": "Premium",
     "family": "Family",
     "features": [
       {
         "name": "Flashcards",
-        "free": true,
+        "free": "500",
         "premium": true,
         "family": true
       },
       {
-        "name": "Quiz Generator",
-        "free": false,
+        "name": "Mind Maps",
+        "free": "5",
         "premium": true,
         "family": true
       },
       {
-        "name": "Structured Note-Taking",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Mind Mapping Tool",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Resource Manager",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Advanced Analytics",
-        "free": false,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "To-Do List and Task Management",
-        "free": true,
-        "premium": true,
-        "family": true
-      },
-      {
-        "name": "Habit Tracker",
-        "free": false,
+        "name": "Quizzes",
+        "free": "10/month",
         "premium": true,
         "family": true
       },
@@ -139,20 +108,20 @@
         "family": true
       },
       {
-        "name": "Collaborative Learning Spaces",
+        "name": "Advanced Analytics",
         "free": false,
         "premium": true,
         "family": true
       },
       {
-        "name": "Customizable Dashboard",
+        "name": "Collaborative Learning",
         "free": false,
-        "premium": true,
+        "premium": false,
         "family": true
       },
       {
-        "name": "Pomodoro Timer",
-        "free": true,
+        "name": "Priority Support",
+        "free": false,
         "premium": true,
         "family": true
       }

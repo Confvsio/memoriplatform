@@ -23,6 +23,7 @@ export default function FeaturesPage({ params: { lang } }: { params: { lang: str
                background: `rgba(${Math.random()*255},${Math.random()*255},${Math.random()*255},0.1)`,
                left: `${Math.random()*100}%`,
                top: `${Math.random()*100}%`,
+               animation: `blob-animation ${20 + i * 2}s infinite alternate`,
              }}
         ></div>
       ))}
@@ -77,63 +78,67 @@ export default function FeaturesPage({ params: { lang } }: { params: { lang: str
                 <tr key={index} className={index % 2 === 0 ? 'bg-gray-800 bg-opacity-50' : 'bg-gray-900 bg-opacity-50'}>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">{feature.name}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                    {feature.free ? (
-                      <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    ) : (
-                        <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                    {feature.premium ? (
-                      <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    {typeof feature.free === 'boolean' ? (
+                      feature.free ? (
+                        <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     ) : (
                       <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                       </svg>
-                    )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
-                    {feature.family ? (
-                      <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    ) : (
-                      <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </main>
+                    )
+                  ) : (
+                    <span className="text-gray-300">{feature.free}</span>
+                  )}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
+                  {feature.premium ? (
+                    <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
+                  {feature.family ? (
+                    <svg className="h-6 w-6 text-green-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="h-6 w-6 text-red-400 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </main>
 
-      <footer className="bg-gray-900 py-10 relative z-10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">memori.</h1>
-            </div>
-            <nav className="flex flex-wrap justify-center space-x-6">
-              <Link href={`/${lang}#features`} className="text-gray-400 hover:text-white transition">{dict.nav.features}</Link>
-              <Link href={`/${lang}#pricing`} className="text-gray-400 hover:text-white transition">{dict.nav.pricing}</Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition">{dict.footer.terms}</Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition">{dict.footer.privacy}</Link>
-            </nav>
+    <footer className="bg-gray-900 py-10 relative z-10">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">memori.</h1>
           </div>
-          <div className="mt-8 text-center text-gray-500 text-sm">
-            © 2024 memori. All rights reserved.
-          </div>
+          <nav className="flex flex-wrap justify-center space-x-6">
+            <Link href={`/${lang}#features`} className="text-gray-400 hover:text-white transition">{dict.nav.features}</Link>
+            <Link href={`/${lang}#pricing`} className="text-gray-400 hover:text-white transition">{dict.nav.pricing}</Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition">{dict.footer.terms}</Link>
+            <Link href="/privacy" className="text-gray-400 hover:text-white transition">{dict.footer.privacy}</Link>
+          </nav>
         </div>
-      </footer>
-    </div>
-  )
+        <div className="mt-8 text-center text-gray-500 text-sm">
+          © 2024 memori. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </div>
+)
 }
