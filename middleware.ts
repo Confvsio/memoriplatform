@@ -9,9 +9,9 @@ export async function middleware(request: NextRequest) {
 
   const { data: { session } } = await supabase.auth.getSession()
 
-  // If the user is logged in and trying to access the root path or auth page, redirect to dashboard
-  if (session && (pathname === '/' || pathname === '/en' || pathname === '/fr' || pathname.includes('/auth'))) {
-    const lang = pathname.split('/')[1] || 'en' // Default to 'en' if no language is specified
+  // If the user is logged in and trying to access the auth page, redirect to dashboard
+  if (session && pathname.includes('/auth')) {
+    const lang = pathname.split('/')[1] || 'en'
     return NextResponse.redirect(new URL(`/${lang}/dashboard`, request.url))
   }
 
