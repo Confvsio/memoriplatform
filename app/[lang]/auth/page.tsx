@@ -18,18 +18,35 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const { user, signIn, signUp } = useAuth()
 
   useEffect(() => {
-    getDictionary(lang).then(setDict)
+    const loadDictionary = async () => {
+      try {
+        const dictionary = await getDictionary(lang)
+        setDict(dictionary)
+      } catch (error) {
+        console.error('Failed to load dictionary:', error)
+        setError('Failed to load page content')
+      }
+    }
+
+    loadDictionary()
   }, [lang])
 
   useEffect(() => {
     const checkSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        router.push(`/${lang}/dashboard`)
-      } else {
+      try {
+        const { data: { session } } = await supabase.auth.getSession()
+        if (session) {
+          router.push(`/${lang}/dashboard`)
+        } else {
+          setLoading(false)
+        }
+      } catch (error) {
+        console.error('Failed to check session:', error)
+        setError('Failed to check authentication status')
         setLoading(false)
       }
     }
+
     checkSession()
   }, [lang, router])
 
@@ -45,7 +62,17 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
     }
   }, [lang, router])
 
-  if (loading || !dict) return null
+  if (loading) {
+    return <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
+      <p className="text-white">Loading...</p>
+    </div>
+  }
+
+  if (!dict) {
+    return <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 flex items-center justify-center">
+      <p className="text-white">Error: {error || 'Failed to load page content'}</p>
+    </div>
+  }
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     e.preventDefault()
