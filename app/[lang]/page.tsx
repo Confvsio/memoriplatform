@@ -1,17 +1,30 @@
 "use client";
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary } from '../../lib/dictionary'
 import { Dictionary } from '../../types/dictionary'
+import { supabase } from '@/lib/supabase'
 
 export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        router.push(`/${lang}/dashboard`)
+      }
+    }
+    checkUser()
+  }, [lang, router])
 
   if (!dict) return null // or a loading spinner
 
@@ -24,22 +37,31 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           <Link href="#features" className="text-gray-300 hover:text-white transition">{dict.nav.features}</Link>
           <Link href="#pricing" className="text-gray-300 hover:text-white transition">{dict.nav.pricing}</Link>
         </nav>
-        <Link href="/auth" className="custom-button text-white px-6 py-2 rounded-full">
+        <Link href={`/${lang}/auth`} className="hidden md:inline-block custom-button text-white px-6 py-2 rounded-full">
           {dict.nav.signup}
         </Link>
-        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden focus:outline-none">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </header>
 
-      {isMenuOpen && (
-        <div className="md:hidden absolute top-20 right-0 left-0 bg-gray-900 z-20">
-          <Link href="#features" className="block py-2 px-4 text-sm hover:bg-gray-800">{dict.nav.features}</Link>
-          <Link href="#pricing" className="block py-2 px-4 text-sm hover:bg-gray-800">{dict.nav.pricing}</Link>
+      {/* Mobile menu */}
+      <div className={`md:hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="flex flex-col items-center justify-center h-full">
+          <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-6 focus:outline-none">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <Link href="#features" className="text-white text-2xl mb-4" onClick={() => setIsMenuOpen(false)}>{dict.nav.features}</Link>
+          <Link href="#pricing" className="text-white text-2xl mb-4" onClick={() => setIsMenuOpen(false)}>{dict.nav.pricing}</Link>
+          <Link href={`/${lang}/auth`} className="custom-button text-white px-6 py-2 rounded-full text-2xl" onClick={() => setIsMenuOpen(false)}>
+            {dict.nav.signup}
+          </Link>
         </div>
-      )}
+      </div>
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 text-center relative z-10">
@@ -47,7 +69,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           {dict.hero.title}
         </h2>
         <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">{dict.hero.subtitle}</p>
-        <Link href="/auth" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-flex items-center">
+        <Link href={`/${lang}/auth`} className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-flex items-center">
           {dict.hero.cta}
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
@@ -97,7 +119,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
                     </li>
                   ))}
                 </ul>
-                <Link href="/auth" className="custom-button text-white px-6 py-2 rounded-full inline-block">
+                <Link href={`/${lang}/auth`} className="custom-button text-white px-6 py-2 rounded-full inline-block">
                   {dict.pricing.cta}
                 </Link>
               </div>
@@ -117,7 +139,7 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
             {dict.cta.title}
           </h3>
-          <Link href="/auth" className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-block">
+          <Link href={`/${lang}/auth`} className="custom-button text-white px-8 py-3 rounded-full text-lg font-semibold inline-block">
             {dict.cta.button}
           </Link>
         </div>

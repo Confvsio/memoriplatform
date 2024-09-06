@@ -7,19 +7,20 @@ export async function middleware(request: NextRequest) {
   const res = NextResponse.next()
   const supabase = createMiddlewareClient({ req: request, res })
 
+  const { data: { session } } = await supabase.auth.getSession()
+
+  // If the user is logged in and trying to access the root path, redirect to dashboard
+  if (session && (pathname === '/' || pathname === '/en' || pathname === '/fr')) {
+    const lang = pathname.split('/')[1] || 'en' // Default to 'en' if no language is specified
+    return NextResponse.redirect(new URL(`/${lang}/dashboard`, request.url))
+  }
+
   // Check if the path already has a language prefix
   if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
-    const { data: { session } } = await supabase.auth.getSession()
-    
-    if (pathname.includes('/dashboard')) {
-      if (!session) {
-        // Redirect to login page if not authenticated
-        const lang = pathname.split('/')[1]
-        return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
-      } else {
-        // Allow access to dashboard if authenticated
-        return res
-      }
+    if (pathname.includes('/dashboard') && !session) {
+      // Redirect to login page if not authenticated
+      const lang = pathname.split('/')[1]
+      return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
     }
     
     return res
