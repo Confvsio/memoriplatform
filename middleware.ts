@@ -15,6 +15,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}/dashboard`, request.url))
   }
 
+  // If the user is not logged in and trying to access the dashboard, redirect to auth page
+  if (!session && pathname.includes('/dashboard')) {
+    const lang = pathname.split('/')[1]
+    return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
+  }
+
   // If the path doesn't have a language prefix, add one
   if (!pathname.startsWith('/en') && !pathname.startsWith('/fr')) {
     const lang = 'en' // Default language

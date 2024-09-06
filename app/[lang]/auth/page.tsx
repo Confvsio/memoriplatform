@@ -14,11 +14,17 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const [dict, setDict] = useState<any>(null)
   const [error, setError] = useState('')
   const router = useRouter()
-  const { setUser } = useAuth()
+  const { user, setUser } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
+
+  useEffect(() => {
+    if (user) {
+      router.push(`/${lang}/dashboard`)
+    }
+  }, [user, lang, router])
 
   if (!dict) return null
 
@@ -78,7 +84,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
         <form className="mt-8 space-y-6" onSubmit={handleEmailAuth}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-            <label htmlFor="email-address" className="sr-only">
+              <label htmlFor="email-address" className="sr-only">
                 {dict.auth.login.email}
               </label>
               <input

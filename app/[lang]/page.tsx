@@ -1,19 +1,29 @@
 "use client";
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary } from '../../lib/dictionary'
 import { Dictionary } from '../../types/dictionary'
+import { useAuth } from '@/contexts/AuthContext'
 
 export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
+  const { user } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
 
-  if (!dict) return null // or a loading spinner
+  useEffect(() => {
+    if (user) {
+      router.push(`/${lang}/dashboard`)
+    }
+  }, [user, lang, router])
+
+  if (!dict) return null
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
