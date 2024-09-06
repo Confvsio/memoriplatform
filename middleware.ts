@@ -18,9 +18,9 @@ export async function middleware(request: NextRequest) {
   // Check if the path already has a language prefix
   if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
     if (pathname.includes('/dashboard') && !session) {
-      // Redirect to login page if not authenticated
+      // Redirect to landing page if not authenticated
       const lang = pathname.split('/')[1]
-      return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
+      return NextResponse.redirect(new URL(`/${lang}`, request.url))
     }
     
     return res
