@@ -1,5 +1,3 @@
-// app/[lang]/dashboard/page.tsx
-
 'use client'
 
 import { useEffect } from 'react'
