@@ -34,6 +34,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
     try {
       if (isLogin) {
         await signIn(email, password)
+        router.push(`/${lang}/dashboard`)
       } else {
         await signUp(email, password)
         setError('Please check your email to verify your account.')
