@@ -18,17 +18,24 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [session, setSession] = useState<Session | null>(null)
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
     const setData = async () => {
       const { data: { session }, error } = await supabase.auth.getSession()
-      if (error) throw error
+      if (error) {
+        console.error('Error getting session:', error)
+        setLoading(false)
+        return
+      }
       setSession(session)
       setUser(session?.user ?? null)
+      setLoading(false)
     }
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      console.log("Auth state changed", _event, session)
       setSession(session)
       setUser(session?.user ?? null)
     })
@@ -59,11 +66,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (error) throw error
     setSession(null)
     setUser(null)
+    router.push('/')
   }
 
   return (
     <AuthContext.Provider value={{ user, session, signIn, signUp, signOut }}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   )
 }
