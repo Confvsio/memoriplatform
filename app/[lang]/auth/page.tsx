@@ -14,7 +14,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const [dict, setDict] = useState<any>(null)
   const [error, setError] = useState('')
   const router = useRouter()
-  const { user, setUser } = useAuth()
+  const { user, signIn, signUp } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
@@ -33,15 +33,9 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
     setError('')
     try {
       if (isLogin) {
-        const { data, error } = await supabase.auth.signInWithPassword({ email, password })
-        if (error) throw error
-        if (data.user) {
-          setUser(data.user)
-          router.push(`/${lang}/dashboard`)
-        }
+        await signIn(email, password)
       } else {
-        const { data, error } = await supabase.auth.signUp({ email, password })
-        if (error) throw error
+        await signUp(email, password)
         setError('Please check your email to verify your account.')
       }
     } catch (error: any) {

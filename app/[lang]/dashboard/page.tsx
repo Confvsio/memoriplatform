@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 
 export default function Dashboard({ params: { lang } }: { params: { lang: string } }) {
-  const { user } = useAuth()
+  const { user, signOut } = useAuth()
   const router = useRouter()
 
   useEffect(() => {
@@ -16,10 +16,20 @@ export default function Dashboard({ params: { lang } }: { params: { lang: string
 
   if (!user) return null
 
+  const handleSignOut = async () => {
+    await signOut()
+    router.push(`/${lang}`)
+  }
+
   return (
-    <div>
-      <h1>Welcome to your dashboard, {user.email}</h1>
-      {/* Add more dashboard content here */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white p-8">
+      <h1 className="text-3xl font-bold mb-4">Welcome to your dashboard, {user.email}</h1>
+      <button
+        onClick={handleSignOut}
+        className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+      >
+        Sign Out
+      </button>
     </div>
   )
 }
