@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary } from '../../lib/dictionary'
 import { Dictionary } from '../../types/dictionary'
@@ -10,18 +9,11 @@ import { useAuth } from '@/contexts/AuthContext'
 export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
   const { user } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
-
-  useEffect(() => {
-    if (user) {
-      router.push(`/${lang}/dashboard`)
-    }
-  }, [user, lang, router])
 
   if (!dict) return null
 
@@ -34,8 +26,8 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           <Link href="#features" className="text-gray-300 hover:text-white transition">{dict.nav.features}</Link>
           <Link href="#pricing" className="text-gray-300 hover:text-white transition">{dict.nav.pricing}</Link>
         </nav>
-        <Link href={`/${lang}/auth`} className="hidden md:inline-block custom-button text-white px-6 py-2 rounded-full">
-          {dict.nav.signup}
+        <Link href={user ? `/${lang}/dashboard` : `/${lang}/auth`} className="hidden md:inline-block custom-button text-white px-6 py-2 rounded-full">
+          {user ? dict.nav.dashboard : dict.nav.signup}
         </Link>
         <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden focus:outline-none">
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -53,8 +45,8 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
           </button>
           <Link href="#features" className="text-white text-2xl mb-4" onClick={() => setIsMenuOpen(false)}>{dict.nav.features}</Link>
           <Link href="#pricing" className="text-white text-2xl mb-4" onClick={() => setIsMenuOpen(false)}>{dict.nav.pricing}</Link>
-          <Link href={`/${lang}/auth`} className="custom-button text-white px-6 py-2 rounded-full text-2xl" onClick={() => setIsMenuOpen(false)}>
-            {dict.nav.signup}
+          <Link href={user ? `/${lang}/dashboard` : `/${lang}/auth`} className="custom-button text-white px-6 py-2 rounded-full text-2xl" onClick={() => setIsMenuOpen(false)}>
+            {user ? dict.nav.dashboard : dict.nav.signup}
           </Link>
         </div>
       </div>

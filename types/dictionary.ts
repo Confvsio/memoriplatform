@@ -10,6 +10,7 @@ export interface Dictionary {
     pricing: string;
     login: string;
     signup: string;
+    dashboard: string; // Add this line
   };
   hero: {
     title: string;
