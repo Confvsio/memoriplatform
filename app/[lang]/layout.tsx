@@ -1,5 +1,5 @@
 import '../globals.css'
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { getDictionary } from '@/lib/dictionary'
 
@@ -23,9 +23,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang}>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </head>
       <body>
         <AuthProvider>{children}</AuthProvider>
       </body>
