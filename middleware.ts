@@ -15,25 +15,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}/dashboard`, request.url))
   }
 
-  // Check if the path already has a language prefix
-  if (pathname.startsWith('/en') || pathname.startsWith('/fr')) {
-    if (pathname.includes('/dashboard') && !session) {
-      // Redirect to landing page if not authenticated
-      const lang = pathname.split('/')[1]
-      return NextResponse.redirect(new URL(`/${lang}`, request.url))
-    }
-    
-    return res
+  // If the path doesn't have a language prefix, add one
+  if (!pathname.startsWith('/en') && !pathname.startsWith('/fr')) {
+    const lang = 'en' // Default language
+    return NextResponse.redirect(new URL(`/${lang}${pathname}`, request.url))
   }
 
-  // Language redirection logic
-  const acceptLanguage = request.headers.get('Accept-Language') || ''
-  const preferredLanguage = acceptLanguage.split(',')[0].split('-')[0]
-  const supportedLanguages = ['en', 'fr']
-  const language = supportedLanguages.includes(preferredLanguage) ? preferredLanguage : 'en'
-  
-  const newUrl = new URL(`/${language}${pathname}`, request.url)
-  return NextResponse.redirect(newUrl)
+  return res
 }
 
 export const config = {

@@ -14,22 +14,11 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
   const [dict, setDict] = useState<any>(null)
   const [error, setError] = useState('')
   const router = useRouter()
-  const { user, setUser } = useAuth()
+  const { setUser } = useAuth()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (user) {
-        setUser(user)
-        router.push(`/${lang}/dashboard`)
-      }
-    }
-    checkUser()
-  }, [lang, router, setUser])
 
   if (!dict) return null
 
@@ -89,7 +78,7 @@ export default function AuthPage({ params: { lang } }: { params: { lang: string 
         <form className="mt-8 space-y-6" onSubmit={handleEmailAuth}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
-              <label htmlFor="email-address" className="sr-only">
+            <label htmlFor="email-address" className="sr-only">
                 {dict.auth.login.email}
               </label>
               <input

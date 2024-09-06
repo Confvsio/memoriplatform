@@ -1,30 +1,17 @@
 "use client";
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { getDictionary } from '../../lib/dictionary'
 import { Dictionary } from '../../types/dictionary'
-import { supabase } from '@/lib/supabase'
 
 export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
 
   useEffect(() => {
     getDictionary(lang).then(setDict)
   }, [lang])
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (user) {
-        router.push(`/${lang}/dashboard`)
-      }
-    }
-    checkUser()
-  }, [lang, router])
 
   if (!dict) return null // or a loading spinner
 
@@ -47,7 +34,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </button>
       </header>
 
-      {/* Mobile menu */}
       <div className={`md:hidden fixed inset-0 z-50 bg-gray-900 bg-opacity-95 transition-opacity duration-300 ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="flex flex-col items-center justify-center h-full">
           <button onClick={() => setIsMenuOpen(false)} className="absolute top-6 right-6 focus:outline-none">
@@ -63,7 +49,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </div>
       </div>
 
-      {/* Hero Section */}
       <section className="container mx-auto px-6 py-20 text-center relative z-10">
         <h2 className="text-5xl md:text-6xl font-bold mb-4 leading-tight">
           {dict.hero.title}
@@ -77,7 +62,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </Link>
       </section>
 
-      {/* Features Section */}
       <section id="features" className="py-20 relative z-10">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
@@ -95,7 +79,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </div>
       </section>
 
-      {/* Pricing Section */}
       <section id="pricing" className="py-20 relative z-10">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
@@ -133,7 +116,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </div>
       </section>
 
-      {/* Call-to-Action Section */}
       <section className="py-20 text-center relative z-10">
         <div className="container mx-auto px-6">
           <h3 className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
@@ -145,7 +127,6 @@ export default function LandingPage({ params: { lang } }: { params: { lang: stri
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-900 py-10 relative z-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
