@@ -21,7 +21,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(`/${lang}/auth`, request.url))
   }
 
-  // Add language prefix if missing
+  // Add language prefix if missing, but don't redirect if it's the root
+  if (pathname === '/') {
+    return NextResponse.rewrite(new URL('/en', request.url))
+  }
+
   if (!pathname.startsWith('/en') && !pathname.startsWith('/fr')) {
     const lang = 'en' // Default language
     return NextResponse.redirect(new URL(`/${lang}${pathname}`, request.url))

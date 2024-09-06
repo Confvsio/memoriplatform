@@ -6,24 +6,35 @@ import { useRouter } from 'next/navigation'
 import { getDictionary } from '../../lib/dictionary'
 import { Dictionary } from '../../types/dictionary'
 import { useAuth } from '@/contexts/AuthContext'
+import { supabase } from '@/lib/supabase'
 
 export default function LandingPage({ params: { lang } }: { params: { lang: string } }) {
   const [dict, setDict] = useState<Dictionary | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
   const { user } = useAuth()
 
   useEffect(() => {
-    getDictionary(lang).then(setDict)
-  }, [lang])
-
-  useEffect(() => {
-    if (user) {
-      router.push(`/${lang}/dashboard`)
+    const loadDictionary = async () => {
+      const dictionary = await getDictionary(lang)
+      setDict(dictionary)
     }
-  }, [user, lang, router])
 
-  if (!dict) return null
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      if (user) {
+        router.push(`/${lang}/dashboard`)
+      } else {
+        setLoading(false)
+      }
+    }
+
+    loadDictionary()
+    checkUser()
+  }, [lang, router])
+
+  if (loading || !dict) return null
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
