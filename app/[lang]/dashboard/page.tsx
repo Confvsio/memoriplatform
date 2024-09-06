@@ -1,3 +1,5 @@
+// app/[lang]/dashboard/page.tsx
+
 'use client'
 
 import { useEffect } from 'react'
@@ -10,7 +12,7 @@ export default function Dashboard({ params: { lang } }: { params: { lang: string
 
   useEffect(() => {
     if (!user) {
-      router.push(`/${lang}`)
+      router.push(`/${lang}/auth`)
     }
   }, [user, router, lang])
 
